@@ -90,6 +90,24 @@
       box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
     }
 
+    .seat-circle li.circle-center-note {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: min(240px, 64%);
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.35;
+      font-weight: 700;
+      color: #312e81;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #c7d2fe;
+      border-radius: 10px;
+      padding: 0.55rem 0.65rem;
+      pointer-events: none;
+    }
+
     .seat-label {
       display: block;
       margin-top: 0.35rem;
@@ -225,6 +243,7 @@ Who is the Demon?
       <section class="circle-wrap" aria-label="Seat positions">
         <img class="script-image" src="images/Script.png" alt="Puzzlebox 4 script" />
         <ul class="seat-circle">
+          <li class="circle-center-note" aria-hidden="true">Nobody died on the Third Night.<br />It is now the Third Day.</li>
           <li style="--i: 0;">
             <img id="seat-1-image" src="https://wiki.bloodontheclocktower.com/images/2/24/Icon_minstrel.png" alt="Minstrel - Seat 1 image" />
             <span id="seat-1-label" class="seat-label">1. Minstrel</span>
