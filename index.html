@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puzzlebox 4 Game State</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f6f8fb;
+      color: #1f2937;
+      line-height: 1.4;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0.35rem;
+    }
+
+    .intro {
+      margin-bottom: 1.25rem;
+      white-space: pre-line;
+      font-size: 1.05rem;
+    }
+
+    .table-layout {
+      display: grid;
+      grid-template-columns: minmax(320px, 500px) 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .circle-wrap {
+      position: sticky;
+      top: 1rem;
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    .seat-circle {
+      list-style: none;
+      margin: 0 auto;
+      padding: 0;
+      position: relative;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 2px dashed #9ca3af;
+      background: radial-gradient(circle, #f9fafb 45%, #eef2ff 100%);
+    }
+
+    .seat-circle li {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 120px;
+      transform: rotate(calc(var(--i) * 45deg)) translateY(-188px) rotate(calc(var(--i) * -45deg)) translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .seat-circle img {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      border: 2px solid #4f46e5;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+    }
+
+    .seat-label {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .seat-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .seat-card {
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 0.9rem;
+    }
+
+    .seat-card h2 {
+      font-size: 1rem;
+      margin: 0 0 0.35rem;
+    }
+
+    .seat-card p {
+      margin: 0;
+      white-space: pre-line;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .table-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .circle-wrap {
+        position: static;
+      }
+
+      .seat-circle {
+        width: min(92vw, 420px);
+        height: min(92vw, 420px);
+      }
+
+      .seat-circle li {
+        transform: rotate(calc(var(--i) * 45deg)) translateY(calc(min(92vw, 420px) / -2 + 26px)) rotate(calc(var(--i) * -45deg)) translate(-50%, -50%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Puzzlebox 4: Current Game State</h1>
+    <section class="intro">Nobody died on the Third Night.
+
+It is now the Third Day.
+
+Who is the Demon?
+
+(There is one player who is most likely the Demon, and one player who could <em>technically</em> be the Demon, if you assume the Storyteller made some rather absurd decisions. Try to figure out both possible worlds!)</section>
+
+    <div class="table-layout">
+      <section class="circle-wrap" aria-label="Seat positions">
+        <ul class="seat-circle">
+          <li style="--i: 0;">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='8' fill='%23eef2ff'/%3E%3Ctext x='32' y='40' font-size='28' text-anchor='middle' fill='%23312e81' font-family='Arial'%3E1%3C/text%3E%3C/svg%3E" alt="Seat 1 image" />
+            <span class="seat-label">1. Minstrel</span>
+          </li>
+          <li style="--i: 1;">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='8' fill='%23eef2ff'/%3E%3Ctext x='32' y='40' font-size='28' text-anchor='middle' fill='%23312e81' font-family='Arial'%3E2%3C/text%3E%3C/svg%3E" alt="Seat 2 image" />
+            <span class="seat-label">2. Innkeeper</span>
+          </li>
+          <li style="--i: 2;">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='8' fill='%23eef2ff'/%3E%3Ctext x='32' y='40' font-size='28' text-anchor='middle' fill='%23312e81' font-family='Arial'%3E3%3C/text%3E%3C/svg%3E" alt="Seat 3 image" />
+            <span class="seat-label">3. Soldier</span>
+          </li>
+          <li style="--i: 3;">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='8' fill='%23eef2ff'/%3E%3Ctext x='32' y='40' font-size='28' text-anchor='middle' fill='%23312e81' font-family='Arial'%3E4%3C/text%3E%3C/svg%3E" alt="Seat 4 image" />
+            <span class="seat-label">4. Clockmaker</span>
+          </li>
+          <li style="--i: 4;">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='8' fill='%23eef2ff'/%3E%3Ctext x='32' y='40' font-size='28' text-anchor='middle' fill='%23312e81' font-family='Arial'%3E5%3C/text%3E%3C/svg%3E" alt="Seat 5 image" />
+            <span class="seat-label">5. Magician</span>
+          </li>
+          <li style="--i: 5;">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='8' fill='%23eef2ff'/%3E%3Ctext x='32' y='40' font-size='28' text-anchor='middle' fill='%23312e81' font-family='Arial'%3E6%3C/text%3E%3C/svg%3E" alt="Seat 6 image" />
+            <span class="seat-label">6. Puzzlemaster</span>
+          </li>
+          <li style="--i: 6;">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='8' fill='%23eef2ff'/%3E%3Ctext x='32' y='40' font-size='28' text-anchor='middle' fill='%23312e81' font-family='Arial'%3E7%3C/text%3E%3C/svg%3E" alt="Seat 7 image" />
+            <span class="seat-label">7. Flowergirl</span>
+          </li>
+          <li style="--i: 7;">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='8' fill='%23eef2ff'/%3E%3Ctext x='32' y='40' font-size='28' text-anchor='middle' fill='%23312e81' font-family='Arial'%3E8%3C/text%3E%3C/svg%3E" alt="Seat 8 image" />
+            <span class="seat-label">8. Gambler</span>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-label="Seat information" class="seat-info-grid">
+        <article class="seat-card">
+          <h2>Seat 1: Minstrel</h2>
+          <p>Claims to have been the one who was told the Widow was in-play.</p>
+        </article>
+
+        <article class="seat-card">
+          <h2>Seat 2: Innkeeper</h2>
+          <p>Second Night: Chose seats 5 and 6.
+Third Night: Chose seats 6 and 7.</p>
+        </article>
+
+        <article class="seat-card">
+          <h2>Seat 3: Soldier</h2>
+          <p>Died Second Night.</p>
+        </article>
+
+        <article class="seat-card">
+          <h2>Seat 4: Clockmaker</h2>
+          <p>First Night: Learned 2.
+
+Executed First Day.</p>
+        </article>
+
+        <article class="seat-card">
+          <h2>Seat 5: Magician</h2>
+          <p>Claims to have been the one who was told the Widow was in-play.
+
+Executed Second Day.</p>
+        </article>
+
+        <article class="seat-card">
+          <h2>Seat 6: Puzzlemaster</h2>
+          <p>First Day: Guessed that seat 3 is the drunk.
+
+Learned: seat 5 is the Demon.
+
+<em>Note: Vortox doesn’t affect Outsiders’ info.</em></p>
+        </article>
+
+        <article class="seat-card">
+          <h2>Seat 7: Flowergirl</h2>
+          <p>First Day Voters:
+Innkeeper, Magician, Puzzlemaster, Minstrel
+
+Second Night: Learned "No"
+
+Second Day Voters:
+Innkeeper, Minstrel, Flowergirl
+
+Third Night: Learned "Yes"</p>
+        </article>
+
+        <article class="seat-card">
+          <h2>Seat 8: Gambler</h2>
+          <p>Second Night: Gambled seat 7 as Flowergirl
+(and survived the night)
+
+Third Night: Gambled seat 2 as Innkeeper
+(and survived the night)</p>
+        </article>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
