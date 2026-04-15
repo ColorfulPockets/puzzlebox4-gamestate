@@ -50,9 +50,19 @@
       padding: 1rem;
     }
 
+    .script-image {
+      display: block;
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto 1.5rem;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
     .seat-circle {
       list-style: none;
-      margin: 0 auto;
+      margin: 0 auto 1.4rem;
       padding: 0;
       position: relative;
       width: 420px;
@@ -85,6 +95,73 @@
       margin-top: 0.35rem;
       font-size: 0.9rem;
       font-weight: 700;
+    }
+
+    .solution-controls {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-top: 1.6rem;
+      flex-wrap: wrap;
+    }
+
+    .solution-controls button {
+      padding: 0.6rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid #4f46e5;
+      background: #eef2ff;
+      color: #312e81;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .solution-controls button:hover {
+      background: #e0e7ff;
+    }
+
+    .solution-box {
+      margin-top: 1rem;
+      background: #f8fafc;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .solution-box h2 {
+      margin: 0 0 0.65rem;
+      font-size: 1.05rem;
+    }
+
+    .solution-lead {
+      margin: 0;
+      margin-bottom: 0.9rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .solution-point {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 9px;
+      padding: 0.7rem 0.8rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .solution-point:last-child {
+      margin-bottom: 0;
+    }
+
+    .solution-point h3 {
+      margin: 0 0 0.3rem;
+      font-size: 0.95rem;
+      color: #312e81;
+    }
+
+    .solution-point p {
+      margin: 0;
+      font-size: 0.94rem;
+      color: #1f2937;
     }
 
     .seat-info-grid {
@@ -146,40 +223,52 @@ Who is the Demon?
 
     <div class="table-layout">
       <section class="circle-wrap" aria-label="Seat positions">
+        <img class="script-image" src="images/Script.png" alt="Puzzlebox 4 script" />
         <ul class="seat-circle">
           <li style="--i: 0;">
-            <img src="https://wiki.bloodontheclocktower.com/images/2/24/Icon_minstrel.png" alt="Seat 1 image" />
-            <span class="seat-label">1. Minstrel</span>
+            <img id="seat-1-image" src="https://wiki.bloodontheclocktower.com/images/2/24/Icon_minstrel.png" alt="Minstrel - Seat 1 image" />
+            <span id="seat-1-label" class="seat-label">1. Minstrel</span>
           </li>
           <li style="--i: 1;">
-            <img src="https://wiki.bloodontheclocktower.com/images/0/0c/Icon_innkeeper.png" alt="Seat 2 image" />
-            <span class="seat-label">2. Innkeeper</span>
+            <img id="seat-2-image" src="https://wiki.bloodontheclocktower.com/images/0/0c/Icon_innkeeper.png" alt="Innkeeper - Seat 2 image" />
+            <span id="seat-2-label" class="seat-label">2. Innkeeper</span>
           </li>
           <li style="--i: 2;">
-            <img src="https://wiki.bloodontheclocktower.com/images/c/c3/Icon_soldier.png" alt="Seat 3 image" />
+            <img src="https://wiki.bloodontheclocktower.com/images/c/c3/Icon_soldier.png" alt="Soldier - Seat 3 image" />
             <span class="seat-label">3. Soldier</span>
           </li>
           <li style="--i: 3;">
-            <img src="https://wiki.bloodontheclocktower.com/images/3/3d/Icon_clockmaker.png" alt="Seat 4 image" />
+            <img src="https://wiki.bloodontheclocktower.com/images/3/3d/Icon_clockmaker.png" alt="Clockmaker - Seat 4 image" />
             <span class="seat-label">4. Clockmaker</span>
           </li>
           <li style="--i: 4;">
-            <img src="https://wiki.bloodontheclocktower.com/images/9/99/Icon_widow.png" alt="Seat 5 image" />
-            <span class="seat-label">5. Magician</span>
+            <img id="seat-5-image" src="https://wiki.bloodontheclocktower.com/images/9/93/Icon_magician.png" alt="Magician - Seat 5 image" />
+            <span id="seat-5-label" class="seat-label">5. Magician</span>
           </li>
           <li style="--i: 5;">
-            <img src="https://wiki.bloodontheclocktower.com/images/7/7a/Icon_puzzlemaster.png" alt="Seat 6 image" />
+            <img src="https://wiki.bloodontheclocktower.com/images/7/7a/Icon_puzzlemaster.png" alt="Puzzlemaster - Seat 6 image" />
             <span class="seat-label">6. Puzzlemaster</span>
           </li>
           <li style="--i: 6;">
-            <img src="https://wiki.bloodontheclocktower.com/images/a/ac/Icon_flowergirl.png" alt="Seat 7 image" />
+            <img src="https://wiki.bloodontheclocktower.com/images/a/ac/Icon_flowergirl.png" alt="Flowergirl - Seat 7 image" />
             <span class="seat-label">7. Flowergirl</span>
           </li>
           <li style="--i: 7;">
-            <img src="https://wiki.bloodontheclocktower.com/images/f/fd/Icon_gambler.png" alt="Seat 8 image" />
+            <img src="https://wiki.bloodontheclocktower.com/images/f/fd/Icon_gambler.png" alt="Gambler - Seat 8 image" />
             <span class="seat-label">8. Gambler</span>
           </li>
         </ul>
+
+        <div class="solution-controls" aria-label="Solution controls">
+          <button id="show-regular-btn" type="button">Show Regular Solution</button>
+          <button id="show-absurd-btn" type="button">Show Absurd Solution</button>
+          <button id="show-original-btn" type="button" hidden>Show Original Setup</button>
+        </div>
+
+        <section id="solution-box" class="solution-box" aria-live="polite" hidden>
+          <h2 id="solution-title"></h2>
+          <div id="solution-content"></div>
+        </section>
       </section>
 
       <section aria-label="Seat information" class="seat-info-grid">
@@ -246,5 +335,128 @@ Third Night: Gambled seat 2 as Innkeeper
       </section>
     </div>
   </main>
+
+  <script>
+    const ICONS = {
+      minstrel: "https://wiki.bloodontheclocktower.com/images/2/24/Icon_minstrel.png",
+      innkeeper: "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_innkeeper.png",
+      magician: "https://wiki.bloodontheclocktower.com/images/9/93/Icon_magician.png",
+      widow: "https://wiki.bloodontheclocktower.com/images/9/99/Icon_widow.png",
+      vortox: "https://wiki.bloodontheclocktower.com/images/8/89/Icon_vortox.png"
+    };
+
+    const seats = {
+      1: {
+        image: document.getElementById("seat-1-image"),
+        label: document.getElementById("seat-1-label")
+      },
+      2: {
+        image: document.getElementById("seat-2-image"),
+        label: document.getElementById("seat-2-label")
+      },
+      5: {
+        image: document.getElementById("seat-5-image"),
+        label: document.getElementById("seat-5-label")
+      }
+    };
+
+    const solutionBox = document.getElementById("solution-box");
+    const solutionTitle = document.getElementById("solution-title");
+    const solutionContent = document.getElementById("solution-content");
+    const showOriginalButton = document.getElementById("show-original-btn");
+
+    const regularSolution = {
+      lead: "Asterisk marks the step that isn't technically true, and leads to the Absurd solution.",
+      points: [
+        "The Magician and Minstrel cannot both be good (both seeing Widow).",
+        "The Flowergirl must be good. Reason: They are 2 seats away from both the Magician and Minstrel, and thus the Clockmaker's 2 rules them out (it must be affected by Vortox).",
+        "The Puzzlemaster must be good (the only Outsider on a script with no Outsider count modification).",
+        "The Flowergirl's info cannot be wrong on both nights, as it would leave only the Puzzlemaster as a Demon candidate, which has already been ruled out. Thus, the Flowergirl must have gotten correct information on one of the nights. Thus, the Vortox must have been drunk or poisoned for at least one night.",
+        "The only night the Vortox didn't kill was the third night, so that was the night the Vortox was drunk.",
+        "We now know that the Flowergirl's information was false on the Second Night and true on the Third Night, which narrows the demon candidates down to only Minstrel and Innkeeper.",
+        "The only source for the Vortox's drunkenness is the Minstrel*, and thus the Minstrel is good.",
+        "Thus, with Minstrel already ruled out, the Innkeeper must be the Demon."
+      ]
+    };
+
+    const absurdSolution = {
+      lead: "This is also technically possible, but requires the Storyteller to have made some... rather questionable decisions.",
+      points: [
+        "See Regular Solution, but we must reconsider whether the Minstrel really is the only source for the Vortox being drunk. It is tempting to consider that the Innkeeper could have made the Vortox drunk, but the Innkeeper didn't choose the other Demon candidate on the night of no deaths.",
+        "There are two other ways the Vortox could be drunk/poisoned: the Widow and the Puzzlemaster.",
+        "There isn't a viable world where the Widow has poisoned the Vortox (proving this fact is left as an exercise to the reader), but there is a world where the Vortox is made drunk by the Puzzlemaster.",
+        "On the second night, the soldier died. At first glance, this means the Vortox shouldn't be Puzzlemaster-drunk. However, on the second night, the Puzzlemaster was chosen by the Innkeeper, which could have made the Puzzlemaster drunk, and thus the Vortox un-drunk, allowing the kill.",
+        "In this variation, the Flowergirl once again got false info on the Second Night and true info on the Third Night, thus narrowing the Demon candidates to Minstrel and Innkeeper. However, in this case, the Innkeeper is the one who allowed the Puzzlemaster to be drunk and un-drunk the Vortox on the night they got a kill, thus the Innkeeper is good, and the Minstrel must be the Demon. It is unclear who is the Widow in this world, but we can identify the Demon."
+      ]
+    };
+
+    function renderSolution(title, solutionData) {
+      solutionTitle.textContent = title;
+      solutionContent.innerHTML = "";
+
+      if (solutionData.lead) {
+        const lead = document.createElement("p");
+        lead.className = "solution-lead";
+        lead.textContent = solutionData.lead;
+        solutionContent.appendChild(lead);
+      }
+
+      solutionData.points.forEach((pointText, index) => {
+        const point = document.createElement("article");
+        point.className = "solution-point";
+
+        const pointHeading = document.createElement("h3");
+        pointHeading.textContent = `Point ${index + 1}`;
+
+        const pointBody = document.createElement("p");
+        pointBody.textContent = pointText;
+
+        point.appendChild(pointHeading);
+        point.appendChild(pointBody);
+        solutionContent.appendChild(point);
+      });
+
+      solutionBox.hidden = false;
+      showOriginalButton.hidden = false;
+    }
+
+    function setSeat(seatNumber, roleName, imageUrl) {
+      const seat = seats[seatNumber];
+      seat.image.src = imageUrl;
+      seat.image.alt = `${roleName} - Seat ${seatNumber} image`;
+      seat.label.textContent = `${seatNumber}. ${roleName}`;
+    }
+
+    function showRegularSolution() {
+      setSeat(1, "Minstrel", ICONS.minstrel);
+      setSeat(2, "Vortox", ICONS.vortox);
+      setSeat(5, "Widow", ICONS.widow);
+
+      renderSolution("Regular Solution", regularSolution);
+    }
+
+    function showAbsurdSolution() {
+      setSeat(1, "Vortox", ICONS.vortox);
+      setSeat(2, "Innkeeper", ICONS.innkeeper);
+      setSeat(5, "Magician", ICONS.magician);
+
+      renderSolution("Absurd Solution", absurdSolution);
+    }
+
+    function showOriginalSetup() {
+      setSeat(1, "Minstrel", ICONS.minstrel);
+      setSeat(2, "Innkeeper", ICONS.innkeeper);
+      setSeat(5, "Magician", ICONS.magician);
+
+      solutionBox.hidden = true;
+      solutionTitle.textContent = "";
+      solutionContent.innerHTML = "";
+      showOriginalButton.hidden = true;
+    }
+
+    document.getElementById("show-regular-btn").addEventListener("click", showRegularSolution);
+    document.getElementById("show-absurd-btn").addEventListener("click", showAbsurdSolution);
+    showOriginalButton.addEventListener("click", showOriginalSetup);
+  </script>
 </body>
 </html>
